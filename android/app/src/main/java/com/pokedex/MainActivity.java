@@ -1,8 +1,15 @@
 package com.pokedex;
+import android.os.Bundle; // here
+
+
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
+
+// react-native-splash-screen >= 0.3.1
+import org.devio.rn.splashscreen.SplashScreen; // here
+
 
 public class MainActivity extends ReactActivity {
 
@@ -14,6 +21,12 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "Pokedex";
   }
+  
+  @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.show(this);  // here
+        super.onCreate(savedInstanceState);
+    }
 
   /**
    * Returns the instance of the {@link ReactActivityDelegate}. There the RootView is created and
@@ -28,6 +41,8 @@ public class MainActivity extends ReactActivity {
     public MainActivityDelegate(ReactActivity activity, String mainComponentName) {
       super(activity, mainComponentName);
     }
+
+     
 
     @Override
     protected ReactRootView createRootView() {

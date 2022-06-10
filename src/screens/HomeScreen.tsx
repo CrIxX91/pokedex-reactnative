@@ -3,15 +3,25 @@ import {ActivityIndicator, FlatList, Image, Text, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {styles} from '../theme/appTheme';
 import {usePokemonPaginated} from '../hooks/usePkmPaginated';
-import {FadeInImage} from '../components/FadeInImage';
 import {PokemonCard} from '../components/PokemonCard';
+
+import SplashScreen from 'react-native-splash-screen'
+import { useEffect } from 'react';
+
 
 export const HomeScreen = () => {
   const {top} = useSafeAreaInsets();
   const {isLoading, pokemonList, loadPokemons} = usePokemonPaginated();
+  
+  useEffect(() => {
+    SplashScreen.hide();
+  }, [])
 
   return (
     <>
+     
+      
+
       <Image
         source={require('../assets/pokebola.png')}
         style={styles.pokebolaBG}
